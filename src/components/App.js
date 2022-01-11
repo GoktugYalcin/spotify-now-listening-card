@@ -1,15 +1,38 @@
-import React, { useState } from "react";
-import '../styles/index.scss';
+import React, {useCallback, useState} from "react";
 import { SpotifyCard } from "./SpotifyCard";
 import {Button, Text, TextInput} from "@mantine/core";
 import html2canvas from 'html2canvas';
 
+import '../styles/index.scss';
+import userPhoto from "../assets/defaultPhoto.png";
+import { useDropzone } from "react-dropzone";
+
 const App = () => {
+
+    const dropzoneUpload = useCallback((acceptedFiles, fileRejections) => {
+        if (acceptedFiles.length) {
+            console.log(acceptedFiles[0])
+            const reader = new FileReader();
+            reader.readAsDataURL(acceptedFiles[0]);
+            reader.onload = function () {
+                setPhotoSrc(reader.result)
+            };
+        }
+    }, [])
+
+    const [photoSrc, setPhotoSrc] = useState(userPhoto)
     const [name, setName] = useState("A. Göktu Yalçın");
     const [recentTime, setRecentTime] = useState("2h");
     const [song, setSong] = useState("25k jacket (feat. Lil Baby)");
     const [artist, setArtist] = useState("Gunna, Lil Baby");
     const [playlist, setPlaylist] = useState("En güzel playlist");
+
+
+    const {acceptedFiles, getRootProps, getInputProps} = useDropzone({
+        onDrop: dropzoneUpload,
+        accept: ['image/gif', "image/jpeg", "image/png"],
+        maxFiles: 1
+    });
 
     return (
     <div className="container">
@@ -20,11 +43,17 @@ const App = () => {
                 song={song}
                 artist={artist}
                 playlist={playlist}
+                photo={photoSrc}
             />
         </div>
 
         <div className="lower">
             <div className="content__edit">
+                <label className="dropzone__label">User Photo</label>
+                <div {...getRootProps({className: 'dropzone__div'})}>
+                    <input {...getInputProps()} />
+                    <p>Select User Photo...</p>
+                </div>
                 <TextInput
                     placeholder="Name"
                     label="Name"
@@ -94,18 +123,14 @@ const App = () => {
                                 downloadLink.href = data;
                                 downloadLink.download = "SpotifyCard.png";
                                 downloadLink.click();
-                                /*const a = document.createElement("a"); //Create <a>
-                                a.href = "data:image/png;base64," + data; //Image Base64 Goes here
-                                a.download = "Image.png"; //File name Here
-                                a.click(); //Downloaded file*/
                             })
                         }}
                 >
                     Save It
                 </Button>
                 <div className="blank__space"></div>
-                <Text align={"center"} size="lg" weight={700}>If you like it, you can find me on <Text variant="link" variant="gradient"
-                                                                                                       gradient={{ from: 'teal', to: 'indigo', deg: 60 }} component="a" href="https://github.com/GoktugYalcin">here</Text>!</Text>
+                <Text align={"center"} size="lg" weight={700}>If you like it, you can find me on <Text variant="gradient"
+                                                                                                       gradient={{ from: 'red', to: 'teal', deg: 30 }} component="a" href="https://github.com/GoktugYalcin">here</Text>!</Text>
             </div>
         </div>
     </div>

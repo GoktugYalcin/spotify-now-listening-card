@@ -1,11 +1,10 @@
-import React, {useState} from 'react'
+import React from 'react'
 import '../styles/index.scss'
 import userPhoto from "../assets/defaultPhoto.png";
 import playlistIcon from "../assets/playlistIcon.png";
-import {useSelector} from "react-redux";
 
 
-export const SpotifyCard = ({name, recentTime, song, artist, playlist}) => {
+export const SpotifyCard = ({name, recentTime, song, artist, playlist, photo}) => {
 
     /*const name = useSelector((state) => state.config.name)
     const recentTime = useSelector((state) => state.config.recentTime)
@@ -15,7 +14,7 @@ export const SpotifyCard = ({name, recentTime, song, artist, playlist}) => {
 
     return (
         <div id="preview" className="preview">
-            <img alt="User Thing" src={userPhoto} className="preview_photo" height="80" width="80"/>
+            <img alt="User Thing" src={photo} className="preview_photo" height="80" width="80"/>
             <div className="preview__info">
                 <div className="preview__info-header">
                     <div className="preview__info-header_name">
