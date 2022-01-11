@@ -1,6 +1,5 @@
 import React from 'react'
 import '../styles/index.scss'
-import userPhoto from "../assets/defaultPhoto.png";
 import playlistIcon from "../assets/playlistIcon.png";
 
 

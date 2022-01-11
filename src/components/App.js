@@ -28,7 +28,7 @@ const App = () => {
     const [playlist, setPlaylist] = useState("En güzel playlist");
 
 
-    const {acceptedFiles, getRootProps, getInputProps} = useDropzone({
+    const { getRootProps, getInputProps } = useDropzone({
         onDrop: dropzoneUpload,
         accept: ['image/gif', "image/jpeg", "image/png"],
         maxFiles: 1
