@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/custom-spotify-card/static/css/main.80209d2c.css",
+    "main.js": "/custom-spotify-card/static/js/main.03ce432d.js",
+    "static/media/playlistIcon.png": "/custom-spotify-card/static/media/playlistIcon.ad89322d5d4f2db669d3.png",
+    "static/media/CircularStd-Bold.otf": "/custom-spotify-card/static/media/CircularStd-Bold.5c4514a8399ec0064b9b.otf",
+    "index.html": "/custom-spotify-card/index.html",
+    "main.80209d2c.css.map": "/custom-spotify-card/static/css/main.80209d2c.css.map",
+    "main.03ce432d.js.map": "/custom-spotify-card/static/js/main.03ce432d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.80209d2c.css",
+    "static/js/main.03ce432d.js"
+  ]
+}
