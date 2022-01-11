@@ -2,7 +2,7 @@
   "name": "spotify-now-playing-card",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://goktugyalcin.github.io/custom-spotify-card/",
+  "homepage": "https://goktugyalcin.github.io/spotify-now-listening-card/",
   "dependencies": {
     "@mantine/core": "^3.5.4",
     "@mantine/hooks": "^3.5.4",
